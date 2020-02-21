@@ -2,14 +2,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#define PRETO "\x1b[;30m"
-#define VERMELHO "\x1b[;31m"
-#define VERDE "\x1b[;32m"
-#define AMARELO "\x1b[;33m"
-#define AZUL "\x1b[;34m"
-#define MAGENTA "\x1b[;35m"
-#define CIANO "\x1b[;36m"
-#define BRANCO "\x1b[;37m"
 
 using namespace std;
 
@@ -21,13 +13,13 @@ char *vetorMarca = (char*) malloc(sizeof(char)*compTamanho);
 
 void carrega(){
     char nomeArquivo[] = {};
-    cout << VERDE << "Digite o nome do arquivo: ";
+    cout << "Digite o nome do arquivo: ";
     cin >> nomeArquivo;
     FILE *arquivo;
     arquivo = fopen(nomeArquivo, "r");
 
     if(arquivo == NULL){
-        cout << VERMELHO << "Arquivo nao encontrado" << endl;
+        cout << "Arquivo nao encontrado" << endl;
     }else{
         fscanf(arquivo, "%d %d %d\n",&lin,&col,&qtdPalavras);
         int b = 0, c = 0;
@@ -38,7 +30,7 @@ void carrega(){
                     if (a == 0) {
                         cout << " ";
                     }
-                    cout << " " << AMARELO << a;
+                    cout << " " << a;
                     if (a == col-1) {
                         cout << endl;
                     }
@@ -47,12 +39,12 @@ void carrega(){
             for(int j = 0; j < col; j++){
                 matriz[i][j] = fgetc(arquivo);
                 if (j == 0) {
-                    cout << AMARELO << b << " ";
+                    cout << b << " ";
                     b++;
                 }
                 cout << matriz[i][j] << " ";
                 if (j == col-1) {
-                    cout << AMARELO << c;
+                    cout << c;
                     c++;
                 }
                 if (i == lin-1 && j == col-1) {
@@ -60,7 +52,7 @@ void carrega(){
                         if (a == 0) {
                             cout << endl << " ";
                         }
-                        cout << " " << AMARELO << a;
+                        cout << " " << a;
                     }
                 }
             }
@@ -68,9 +60,9 @@ void carrega(){
             cout << endl;
         }
         int l = 0;
-        cout << AZUL << "Encontre as palavras a seguir:" << endl;
+        cout << "Encontre as palavras a seguir:" << endl;
         while (vetorPalavras[k] = fgetc(arquivo)) {
-            cout << AZUL << vetorPalavras[k];
+            cout << vetorPalavras[k];
             if (vetorPalavras[k] == '\n') {
                 l++;
                 if (l == qtdPalavras) {
@@ -94,7 +86,7 @@ void carrega(){
     return;
 }
 
-void imprimirColorido() {
+void imprimir() {
     int b = 0, c = 0, m = 0;
     if (comparar == 1) {
         for(int i = 0; i < lin; i++){
@@ -103,7 +95,7 @@ void imprimirColorido() {
                     if (a == 0) {
                         cout << " ";
                     }
-                    cout << " " << AMARELO << a;
+                    cout << " " << a;
                     if (a == col-1) {
                         cout << endl;
                     }
@@ -111,17 +103,17 @@ void imprimirColorido() {
             }
             for(int j = 0; j < col; j++){
                 if (j == 0) {
-                    cout << AMARELO << b << " ";
+                    cout << b << " ";
                     b++;
                 }
                 if (i == compLinha && j == compColuna+m) {
-                    cout << VERMELHO << matriz[compLinha][compColuna+m] << " ";
+                    cout << matriz[compLinha][compColuna+m] << " ";
                     m++;
                 } else {
                     cout << matriz[i][j] << " ";
                 }
                 if (j == col-1) {
-                    cout << AMARELO << c;
+                    cout << c;
                     c++;
                 }
                 if (i == lin-1 && j == col-1) {
@@ -129,7 +121,7 @@ void imprimirColorido() {
                         if (a == 0) {
                             cout << endl << " ";
                         }
-                        cout << " " << AMARELO << a;
+                        cout << " " << a;
                     }
                 }
             }
@@ -142,7 +134,7 @@ void imprimirColorido() {
                     if (a == 0) {
                         cout << " ";
                     }
-                    cout << " " << AMARELO << a;
+                    cout << " " << a;
                     if (a == col-1) {
                         cout << endl;
                     }
@@ -150,17 +142,17 @@ void imprimirColorido() {
             }
             for(int j = 0; j < col; j++){
                 if (j == 0) {
-                    cout << AMARELO << b << " ";
+                    cout << b << " ";
                     b++;
                 }
                 if (i == compLinha && j == compColuna-m) {
-                    cout << VERMELHO << matriz[compLinha][compColuna-m] << " ";
+                    cout << matriz[compLinha][compColuna-m] << " ";
                     m++;
                 } else {
                     cout << matriz[i][j] << " ";
                 }
                 if (j == col-1) {
-                    cout << AMARELO << c;
+                    cout << c;
                     c++;
                 }
                 if (i == lin-1 && j == col-1) {
@@ -168,7 +160,7 @@ void imprimirColorido() {
                         if (a == 0) {
                             cout << endl << " ";
                         }
-                        cout << " " << AMARELO << a;
+                        cout << " " << a;
                     }
                 }
             }
@@ -181,7 +173,7 @@ void imprimirColorido() {
                     if (a == 0) {
                         cout << " ";
                     }
-                    cout << " " << AMARELO << a;
+                    cout << " " << a;
                     if (a == col-1) {
                         cout << endl;
                     }
@@ -189,17 +181,17 @@ void imprimirColorido() {
             }
             for(int j = 0; j < col; j++){
                 if (j == 0) {
-                    cout << AMARELO << b << " ";
+                    cout << b << " ";
                     b++;
                 }
                 if (i == compLinha+m && j == compColuna) {
-                    cout << VERMELHO << matriz[compLinha+m][compColuna] << " ";
+                    cout << matriz[compLinha+m][compColuna] << " ";
                     m++;
                 } else {
                     cout << matriz[i][j] << " ";
                 }
                 if (j == col-1) {
-                    cout << AMARELO << c;
+                    cout << c;
                     c++;
                 }
                 if (i == lin-1 && j == col-1) {
@@ -207,7 +199,7 @@ void imprimirColorido() {
                         if (a == 0) {
                             cout << endl << " ";
                         }
-                        cout << " " << AMARELO << a;
+                        cout << " " << a;
                     }
                 }
             }
@@ -220,7 +212,7 @@ void imprimirColorido() {
                     if (a == 0) {
                         cout << " ";
                     }
-                    cout << " " << AMARELO << a;
+                    cout << " " << a;
                     if (a == col-1) {
                         cout << endl;
                     }
@@ -228,17 +220,17 @@ void imprimirColorido() {
             }
             for(int j = 0; j < col; j++){
                 if (j == 0) {
-                    cout << AMARELO << b << " ";
+                    cout << b << " ";
                     b++;
                 }
                 if (i == compLinha-m && j == compColuna) {
-                    cout << VERMELHO << matriz[compLinha-m][compColuna] << " ";
+                    cout << matriz[compLinha-m][compColuna] << " ";
                     m++;
                 } else {
                     cout << matriz[i][j] << " ";
                 }
                 if (j == col-1) {
-                    cout << AMARELO << c;
+                    cout << c;
                     c++;
                 }
                 if (i == lin-1 && j == col-1) {
@@ -246,7 +238,7 @@ void imprimirColorido() {
                         if (a == 0) {
                             cout << endl << " ";
                         }
-                        cout << " " << AMARELO << a;
+                        cout << " " << a;
                     }
                 }
             }
@@ -260,7 +252,7 @@ void imprimirColorido() {
                         if (a == 0) {
                             cout << " ";
                         }
-                        cout << " " << AMARELO << a;
+                        cout << " " << a;
                         if (a == col-1) {
                             cout << endl;
                         }
@@ -268,17 +260,17 @@ void imprimirColorido() {
                 }
                 for(int j = 0; j < col; j++){
                     if (j == 0) {
-                        cout << AMARELO << b << " ";
+                        cout << b << " ";
                         b++;
                     }
                     if (i == compLinha+m && j == compColuna+m) {
-                        cout << VERMELHO << matriz[compLinha+m][compColuna+m] << " ";
+                        cout << matriz[compLinha+m][compColuna+m] << " ";
                         m++;
                     } else {
                         cout << matriz[i][j] << " ";
                     }
                     if (j == col-1) {
-                        cout << AMARELO << c;
+                        cout << c;
                         c++;
                     }
                     if (i == lin-1 && j == col-1) {
@@ -286,7 +278,7 @@ void imprimirColorido() {
                             if (a == 0) {
                                 cout << endl << " ";
                             }
-                            cout << " " << AMARELO << a;
+                            cout << " " << a;
                         }
                     }
                 }
@@ -299,7 +291,7 @@ void imprimirColorido() {
                             if (a == 0) {
                                 cout << " ";
                             }
-                            cout << " " << AMARELO << a;
+                            cout << " " << a;
                             if (a == col-1) {
                                 cout << endl;
                             }
@@ -307,17 +299,17 @@ void imprimirColorido() {
                     }
                     for(int j = 0; j < col; j++){
                         if (j == 0) {
-                            cout << AMARELO << b << " ";
+                            cout << b << " ";
                             b++;
                         }
                         if (i == compLinha-m && j == compColuna+m) {
-                            cout << VERMELHO << matriz[compLinha-m][compColuna+m] << " ";
+                            cout << matriz[compLinha-m][compColuna+m] << " ";
                             m++;
                         } else {
                             cout << matriz[i][j] << " ";
                         }
                         if (j == col-1) {
-                            cout << AMARELO << c;
+                            cout << c;
                             c++;
                         }
                         if (i == lin-1 && j == col-1) {
@@ -338,7 +330,7 @@ void imprimirColorido() {
                             if (a == 0) {
                                 cout << " ";
                             }
-                            cout << " " << AMARELO << a;
+                            cout << " " << a;
                             if (a == col-1) {
                                 cout << endl;
                             }
@@ -346,17 +338,17 @@ void imprimirColorido() {
                     }
                     for(int j = 0; j < col; j++){
                         if (j == 0) {
-                            cout << AMARELO << b << " ";
+                            cout << b << " ";
                             b++;
                         }
                          if (i == compLinha+m && j == compColuna-m) {
-                            cout << VERMELHO << matriz[compLinha+m][compColuna-m] << " ";
+                            cout << matriz[compLinha+m][compColuna-m] << " ";
                             m++;
                         } else {
                             cout << matriz[i][j] << " ";
                         }
                         if (j == col-1) {
-                            cout << AMARELO << c;
+                            cout << c;
                             c++;
                         }
                         if (i == lin-1 && j == col-1) {
@@ -364,7 +356,7 @@ void imprimirColorido() {
                                 if (a == 0) {
                                     cout << endl << " ";
                                 }
-                                cout << " " << AMARELO << a;
+                                cout << " " << a;
                             }
                         }
                     }
@@ -377,7 +369,7 @@ void imprimirColorido() {
                         if (a == 0) {
                             cout << " ";
                         }
-                        cout << " " << AMARELO << a;
+                        cout << " " << a;
                         if (a == col-1) {
                             cout << endl;
                         }
@@ -385,17 +377,17 @@ void imprimirColorido() {
                 }
                 for(int j = 0; j < col; j++){
                     if (j == 0) {
-                        cout << AMARELO << b << " ";
+                        cout << b << " ";
                         b++;
                     }
                         if (i == compLinha-m && j == compColuna-m) {
-                        cout << VERMELHO << matriz[compLinha-m][compColuna-m] << " ";
+                        cout << matriz[compLinha-m][compColuna-m] << " ";
                         m++;
                     } else {
                         cout << matriz[i][j] << " ";
                     }
                     if (j == col-1) {
-                        cout << AMARELO << c;
+                        cout << c;
                         c++;
                     }
                     if (i == lin-1 && j == col-1) {
@@ -403,7 +395,7 @@ void imprimirColorido() {
                             if (a == 0) {
                                 cout << endl << " ";
                             }
-                            cout << " " << AMARELO << a;
+                            cout << " " << a;
                         }
                     }
                 }
@@ -412,12 +404,12 @@ void imprimirColorido() {
         }
     }
     if (k == 1) {
-        cout << AZUL << "Parabens! Voce completou o caca palavras!" << endl;
-        cout << VERMELHO << "Carregue o proximo ou feche o programa" << endl;
+        cout << "Parabens! Voce completou o caca palavras!" << endl;
+        cout << "Carregue o proximo ou feche o programa" << endl;
     } else {
-        cout << AZUL << "Faltam essa(s) palavra(s): " << endl;
+        cout << "Faltam essa(s) palavra(s): " << endl;
         for (int y = 0; y <= k; y++) {
-            cout << AZUL << vetorPalavras[y];
+            cout << vetorPalavras[y];
         }
     }
 }
@@ -496,34 +488,34 @@ void marca(){
                 u = 0;
             }
             if (u+f >= k) {
-                cout << VERDE << "Voce errou" << endl;
+                cout << "Voce errou" << endl;
                 break;
             }
             if (vetorPalavras[u+f] == vetorMarca[u]) {
                 d++;
             }
             if (compTamanho == d) {
-                cout << VERDE << "Voce acertou!" << endl;
+                cout << "Voce acertou!" << endl;
                 for (int i = 0; i < k; i++) {
                     vetorPalavras[u+f-d+1+i] = vetorPalavras[u+f+2+i];
                 }
                 k = k - d;
-                imprimirColorido();
+                imprimir();
                 return;
             }
         }
         x = x+1;
     } else {
         x = x - 1;
-        cout << VERDE << "Voce errou" << endl;
+        cout << "Voce errou" << endl;
     }
     if (k == 1) {
-        cout << AZUL << "Voce ja completou o caca palavras!" << endl;
-        cout << VERMELHO << "Carregue o proximo ou feche o programa" << endl;
+        cout << "Voce ja completou o caca palavras!" << endl;
+        cout << "Carregue o proximo ou feche o programa" << endl;
     } else {
-        cout << AZUL << "Faltam essa(s) palavra(s): " << endl;
+        cout << "Faltam essa(s) palavra(s): " << endl;
         for (int y = 0; y <= k; y++) {
-            cout << AZUL << vetorPalavras[y];
+            cout << vetorPalavras[y];
         }
     }
     return;
@@ -558,7 +550,7 @@ int main(){
             free(vetorMarca);
             return 0;
         default:
-            cout << VERMELHO << "Digite um comando valido" << endl;
+            cout << "Digite um comando valido" << endl;
         }
     }while(resposta != 0);
 }
